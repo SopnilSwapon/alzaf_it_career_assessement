@@ -28,6 +28,7 @@ export function Header({ categories }: { categories: TCategory[] }) {
               href={`/category/${category.slug}`}
               className="
                 shrink-0
+                p-2
                 rounded-full border bg-background
                 py-1 text-xs font-medium
                 hover:bg-accent
