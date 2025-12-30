@@ -8,6 +8,7 @@ class FetchError extends Error {
 }
 
 export async function fetcher<T>(url: string): Promise<T> {
+  console.log(url, "check url");
   const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) {
     throw new FetchError("Request failed", res.status);
