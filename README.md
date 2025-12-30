@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Alzaf IT Career Assessment — Frontend (E-commerce)
 
-## Getting Started
+Live Demo: https://alzaf-it-career-assessement-kji2.vercel.app/
 
-First, run the development server:
+This project is a simple frontend application that mimics a basic e-commerce website, built based on the provided task requirements.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## What I Implemented (Mandatory)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+✅ Homepage
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Banner carousel
+- Responsive product grid (up to 4 columns on large screens)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+✅ Product Details Page
 
-## Learn More
+- Clicking a product from the grid navigates to the details page
 
-To learn more about Next.js, take a look at the following resources:
+✅ Header Navigation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Category-based navigation in the header
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+✅ Server-Side Data Fetching
 
-## Deploy on Vercel
+- All data fetching is performed server-side using Next.js (App Router)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## What I Did NOT Implement
+
+❌ Extra pages/blocks (optional)  
+❌ Sorting / Searching / Min-Max price filtering UI (optional)
+
+---
+
+## Tech Stack
+
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+
+---
+
+## API Endpoints Used
+
+Base: `https://alzaf-frontend-2025.vercel.app/api`
+
+- `GET /banners`
+- `GET /categories`
+- `GET /products`
+- `GET /products/:id`
+
+---
+
+## Running Locally
+
+-- git clone : https://github.com/SopnilSwapon/alzaf_it_career_assessement
+-- cd alzaf_it_career_assessement
+-- npm install
+-- npm run dev
