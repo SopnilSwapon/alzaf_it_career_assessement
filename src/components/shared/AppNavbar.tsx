@@ -5,23 +5,33 @@ export function Header({ categories }: { categories: TCategory[] }) {
   if (!Array.isArray(categories)) return null;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur ">
-      <nav className="mx-auto flex w-full items-center justify-between gap-4 px-4 py-3">
-        <div className="flex items-center gap-2">
-          <Link
-            href="/"
-            className="rounded-md px-2 py-1 text-sm font-semibold tracking-tight transition hover:bg-accent hover:text-accent-foreground"
-          >
-            Home
-          </Link>
-        </div>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
+      <nav className="mx-auto flex w-full items-center gap-3 px-4 py-3">
+        <Link
+          href="/"
+          className="shrink-0 rounded-md px-2 py-1 text-sm font-semibold"
+        >
+          Home
+        </Link>
 
-        <div className="flex max-w-[75%] flex-wrap items-center justify-end gap-2">
+        <div
+          className="
+            flex flex-1 items-center gap-2
+            overflow-x-auto
+            scrollbar-hide
+            md:flex-wrap md:justify-end md:overflow-visible
+          "
+        >
           {categories.map((category) => (
             <Link
               key={category.id}
               href={`/category/${category.slug}`}
-              className="rounded-full border bg-background px-3 py-1 text-xs font-medium text-foreground/90 transition hover:bg-accent hover:text-accent-foreground hover:border-transparent focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+              className="
+                shrink-0
+                rounded-full border bg-background
+                px-3 py-1 text-xs font-medium
+                hover:bg-accent
+              "
             >
               {category.name}
             </Link>

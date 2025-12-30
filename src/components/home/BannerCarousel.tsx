@@ -15,7 +15,6 @@ import { cn } from "@/lib/utils";
 import { TBanner } from "@/app/page";
 
 export function BannerCarousel({ banners }: { banners: TBanner[] }) {
-    
   return (
     <section className="w-full">
       <Carousel className="w-full">
@@ -72,8 +71,8 @@ export function BannerCarousel({ banners }: { banners: TBanner[] }) {
                 </div>
 
                 {/* changing item buttons */}
-                <CarouselPrevious className="left-3 top-1/2 -translate-y-1/2" />
-                <CarouselNext className="right-3 top-1/2 -translate-y-1/2" />
+                <CarouselPrevious className="left-3 cursor-pointer top-1/2 -translate-y-1/2" />
+                <CarouselNext className="right-3 top-1/2 cursor-pointer -translate-y-1/2" />
               </div>
             </CarouselItem>
           ))}
