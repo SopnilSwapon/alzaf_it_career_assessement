@@ -1,12 +1,8 @@
-// components/banner-carousel.tsx
-"use client";
-
-import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-// import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Badge } from "../ui/badge";
 import {
   Carousel,
   CarouselContent,
@@ -15,10 +11,11 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { cn } from "@/lib/utils";
+
 import { TBanner } from "@/app/page";
-import { Badge } from "../ui/badge";
 
 export function BannerCarousel({ banners }: { banners: TBanner[] }) {
+    
   return (
     <section className="w-full">
       <Carousel className="w-full">
@@ -26,7 +23,7 @@ export function BannerCarousel({ banners }: { banners: TBanner[] }) {
           {banners.map((b, idx) => (
             <CarouselItem key={b.id}>
               <div className="relative overflow-hidden rounded-2xl border bg-muted">
-                <div className="relative aspect-[16/7] w-full sm:aspect-[16/6] md:aspect-[16/5]">
+                <div className="relative aspect-16/7 w-full sm:aspect-16/6 md:aspect-16/5">
                   <Image
                     src={b.image}
                     alt={b.title}
@@ -35,8 +32,7 @@ export function BannerCarousel({ banners }: { banners: TBanner[] }) {
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 1200px"
                   />
-                  {/* overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/35 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/35 to-transparent" />
                 </div>
 
                 <div className="absolute inset-0 flex items-end">
@@ -75,7 +71,7 @@ export function BannerCarousel({ banners }: { banners: TBanner[] }) {
                   </div>
                 </div>
 
-                {/* controls */}
+                {/* changing item buttons */}
                 <CarouselPrevious className="left-3 top-1/2 -translate-y-1/2" />
                 <CarouselNext className="right-3 top-1/2 -translate-y-1/2" />
               </div>

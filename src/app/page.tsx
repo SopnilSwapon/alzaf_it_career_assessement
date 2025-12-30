@@ -26,10 +26,8 @@ export default async function Home() {
   const [banners] = await Promise.all([
     fetcher<IBannersResponse>(endpoints.banners()),
   ]);
-  console.log(banners, "check");
   return (
     <div>
-      <h1>Home Page</h1>
       <BannerCarousel banners={banners.data.banners} />
     </div>
   );
