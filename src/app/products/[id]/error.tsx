@@ -24,7 +24,7 @@ export default function Error({
         </CardHeader>
 
         <CardContent className="space-y-4">
-          <div className="rounded-md border bg-muted/40 p-3 text-xs text-muted-foreground">
+          <div className="rounded-md border bg-muted/40 p-3 text-xs">
             {error.message}
             {error.digest ? (
               <div className="mt-1">Ref: {error.digest}</div>

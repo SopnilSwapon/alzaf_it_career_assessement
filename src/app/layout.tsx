@@ -6,6 +6,7 @@ import { Header } from "@/components/shared/AppNavbar";
 import { endpoints } from "@/api/endpoints";
 import { fetcher } from "@/api/fetcher";
 
+// categories types
 export type TCategory = {
   id: number;
   name: string;
@@ -42,11 +43,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const res = await fetcher<ICategoriesResponse>(endpoints.categories());
-  console.log(res, "check res");
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-330 mx-auto`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased max-w-330 mx-auto px-4`}
       >
         <Header categories={res.data.categories} />
         <main>{children}</main>

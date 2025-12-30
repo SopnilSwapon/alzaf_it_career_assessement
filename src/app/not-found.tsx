@@ -11,7 +11,7 @@ export default function NotFound() {
 
       <button
         onClick={() => router.back()}
-        className="mt-6 inline-flex cursor-pointer items-center justify-center rounded-md bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-black/85"
+        className="mt-6 inline-flex cursor-pointer items-center justify-center rounded-md bg-black text-white p-2"
       >
         ← Back
       </button>

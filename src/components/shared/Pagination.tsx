@@ -17,7 +17,7 @@ export function Pagination({
     <div className="flex items-center justify-end gap-3 pb-4">
       <Link
         className={`px-3 py-1 border rounded ${
-          currentPage === 1 ? "pointer-events-none opacity-50" : ""
+          !hasPrev ? "pointer-events-none opacity-50" : ""
         }`}
         href={`?page=${currentPage - 1}`}
       >
@@ -30,7 +30,7 @@ export function Pagination({
 
       <Link
         className={`px-3 py-1 border rounded ${
-          currentPage === totalPages ? "pointer-events-none opacity-50" : ""
+          hasNext ? "" : "pointer-events-none opacity-50"
         }`}
         href={`?page=${currentPage + 1}`}
       >

@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { Badge } from "../ui/badge";
 import {
   Carousel,
   CarouselContent,
@@ -19,13 +18,13 @@ export function BannerCarousel({ banners }: { banners: TBanner[] }) {
     <section className="w-full">
       <Carousel className="w-full">
         <CarouselContent>
-          {banners.map((b, idx) => (
-            <CarouselItem key={b.id}>
+          {banners.map((item, idx) => (
+            <CarouselItem key={item.id}>
               <div className="relative overflow-hidden rounded-2xl border bg-muted">
                 <div className="relative aspect-16/7 w-full sm:aspect-16/6 md:aspect-16/5">
                   <Image
-                    src={b.image}
-                    alt={b.title}
+                    src={item.image}
+                    alt={item.title}
                     fill
                     priority={idx === 0}
                     className="object-cover"
@@ -37,34 +36,16 @@ export function BannerCarousel({ banners }: { banners: TBanner[] }) {
                 <div className="absolute inset-0 flex items-end">
                   <div className="w-full p-4 sm:p-6 md:p-8">
                     <div className="max-w-xl space-y-2">
-                      {b.subtitle ? (
-                        <Badge className="w-fit" variant="secondary">
-                          {b.subtitle}
-                        </Badge>
-                      ) : null}
-
-                      <h2 className="text-balance text-2xl font-semibold text-white sm:text-3xl md:text-4xl">
-                        {b.title}
-                      </h2>
-
-                      {b.description ? (
-                        <p className="text-pretty text-sm text-white/85 sm:text-base">
-                          {b.description}
-                        </p>
-                      ) : null}
+                      <p className="text-pretty text-sm text-white/85 sm:text-base">
+                        {item.description}
+                      </p>
 
                       <div className="pt-2">
-                        {b.link ? (
-                          <Button asChild className={cn("cursor-pointer")}>
-                            <Link href={b.link}>
-                              {b.buttonText ?? "Explore"}
-                            </Link>
-                          </Button>
-                        ) : (
-                          <Button className="cursor-pointer" disabled>
-                            {b.buttonText ?? "Explore"}
-                          </Button>
-                        )}
+                        <Button asChild className={cn("cursor-pointer")}>
+                          <Link href={item.link}>
+                            {item.buttonText ?? "Explore"}
+                          </Link>
+                        </Button>
                       </div>
                     </div>
                   </div>

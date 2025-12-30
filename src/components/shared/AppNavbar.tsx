@@ -6,7 +6,7 @@ export function Header({ categories }: { categories: TCategory[] }) {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur">
-      <nav className="mx-auto flex w-full items-center gap-3 px-4 py-3">
+      <nav className="mx-auto flex w-full items-center gap-3 py-3">
         <Link
           href="/"
           className="shrink-0 rounded-md px-2 py-1 text-sm font-semibold"
@@ -29,7 +29,7 @@ export function Header({ categories }: { categories: TCategory[] }) {
               className="
                 shrink-0
                 rounded-full border bg-background
-                px-3 py-1 text-xs font-medium
+                py-1 text-xs font-medium
                 hover:bg-accent
               "
             >

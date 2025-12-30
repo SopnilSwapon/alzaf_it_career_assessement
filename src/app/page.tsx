@@ -13,7 +13,7 @@ export type TBanner = {
   description: string;
   image: string;
   active: boolean;
-  link?: string;
+  link: string;
   order: number;
   buttonText: string;
 };
@@ -37,16 +37,6 @@ export type TProduct = {
   brand: string;
   category: string;
 };
-type SearchParams = {
-  category?: string;
-  minPrice?: string;
-  maxPrice?: string;
-  search?: string;
-  sort?: string;
-  page?: number;
-  limit?: number;
-};
-
 interface IProductsResponse {
   success: boolean;
   data: {
@@ -66,12 +56,26 @@ interface IProductsResponse {
   };
 }
 
-export default async function Home({
+// search params types
+
+type SearchParams = {
+  category?: string;
+  minPrice?: string;
+  maxPrice?: string;
+  search?: string;
+  sort?: string;
+  page?: number;
+  limit?: number;
+};
+
+export default async function page({
   searchParams,
 }: {
   searchParams: Promise<SearchParams>;
 }) {
   const params = await searchParams;
+
+  // current params
   const query = buildQuery({
     category: params.category,
     minPrice: params.minPrice,
@@ -79,18 +83,24 @@ export default async function Home({
     search: params.search,
     sort: params.sort,
     page: params.page ?? 1,
-    limit: params.limit ?? 8,
+    limit: params.limit ?? 10,
   });
+
   const [banners, products] = await Promise.all([
     fetcher<IBannersResponse>(endpoints.banners()),
     fetcher<IProductsResponse>(endpoints.products(query)),
   ]);
+
   const { currentPage, totalPages, hasNextPage, hasPrevPage } =
     products.data.pagination;
+
   return (
     <div>
+      {/*banner carousels */}
       <BannerCarousel banners={banners.data.banners} />
+      {/* All products */}
       <Products products={products.data.products} />
+      {/* Products pagination */}
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}

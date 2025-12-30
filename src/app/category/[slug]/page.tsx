@@ -1,10 +1,11 @@
+import { SearchParams } from "next/dist/server/request/search-params";
+import { notFound } from "next/navigation";
+
 import { endpoints } from "@/api/endpoints";
 import { fetcher } from "@/api/fetcher";
 import { TProduct } from "@/app/page";
 import { Products } from "@/components/home/Products";
 import { buildQuery } from "@/lib/utils";
-import { SearchParams } from "next/dist/server/request/search-params";
-import { notFound } from "next/navigation";
 
 interface ICategoryResponse {
   success: boolean;
@@ -25,7 +26,7 @@ interface ICategoryResponse {
   };
 }
 
-export default async function CategoryPage({
+export default async function page({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -36,7 +37,7 @@ export default async function CategoryPage({
 
   const query = buildQuery({ category: slug });
   const res = await fetcher<ICategoryResponse>(endpoints.products(query));
-  console.log(res.data);
+
   return (
     <div className="space-y-6">
       <h1 className="text- mt-4 font-bold capitalize">

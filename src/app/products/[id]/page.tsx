@@ -30,13 +30,12 @@ async function getProductDetails(id: string) {
   }
 }
 
-export default async function ProductPage({
+export default async function page({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-
   const { product, similarProducts } = await getProductDetails(id);
 
   return (
@@ -56,7 +55,7 @@ export default async function ProductPage({
 
         <div className="space-y-4">
           <h1 className="text-2xl font-bold">{product.name}</h1>
-          <p className="text-muted-foreground">{product.description}</p>
+          <p>{product.description}</p>
           <p className="text-lg font-semibold">${product.price}</p>
         </div>
       </div>
