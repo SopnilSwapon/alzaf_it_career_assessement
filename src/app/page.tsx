@@ -2,6 +2,7 @@ import { endpoints } from "@/api/endpoints";
 import { fetcher } from "@/api/fetcher";
 import { BannerCarousel } from "@/components/home/BannerCarousel";
 import { Products } from "@/components/home/Products";
+import { Pagination } from "@/components/shared/Pagination";
 import { buildQuery } from "@/lib/utils";
 
 // banner types
@@ -80,15 +81,22 @@ export default async function Home({
     page: params.page ?? 1,
     limit: params.limit ?? 8,
   });
-  console.log(query, "check the query");
   const [banners, products] = await Promise.all([
     fetcher<IBannersResponse>(endpoints.banners()),
     fetcher<IProductsResponse>(endpoints.products(query)),
   ]);
+  const { currentPage, totalPages, hasNextPage, hasPrevPage } =
+    products.data.pagination;
   return (
     <div>
       <BannerCarousel banners={banners.data.banners} />
       <Products products={products.data.products} />
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        hasNext={hasNextPage}
+        hasPrev={hasPrevPage}
+      />
     </div>
   );
 }

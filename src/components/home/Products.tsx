@@ -11,20 +11,22 @@ export function Products({ products }: { products: TProduct[] }) {
     );
   }
   return (
-    <section className="py-12">
+    <section className="pt-8 pb-4">
       <h1 className="text-4xl font-bold py-4">Products</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((p) => (
           <Link
             key={p.id}
             href={`/products/${p.id}`}
-            className=" p-4 rounded border border-red-800"
+            className=" p-4 rounded border"
           >
-            <p>hello</p>
             <Image src={p.image} alt="" height={400} width={400} />
             <h3 className="mt-2 font-medium">{p.name}</h3>
             <p>hello</p>
-            <p>${p.price}</p>
+            <div className="flex justify-between items-center">
+              <p>${p.price}</p>
+              <p className="underline">Details</p>
+            </div>
           </Link>
         ))}
       </div>
